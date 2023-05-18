@@ -1,6 +1,7 @@
 #' Hello World
 #' 
-#' Basic hello world function to be called from the demo app
+#' Basic hello world function to be called from the demo app\
+#' Test
 #' 
 #' @export
 #' @param myname your name. Required.
