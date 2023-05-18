@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello opencpu</title>
+    <title>Hello</title>
     
     <!-- Include order: first jquery, then opencpu.js, and then your code -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://www.opencpu.org/js/archive/opencpu-0.5.js"></script>
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
     <script>
     //init this script when the page has loaded
     $(document).ready(function(){
@@ -64,8 +64,8 @@
     
     <p>Have a look at the HTML source code! Some things to notice:</p>
     <ul>
-      <li>We can always see the source code of the R function using the API, e.g <a href="R/hello">here</a>.</li>
-      <li>If the R function has a manual page, it we can find it <a href="man/hello">here</a></li>
+      <li>We can always see the source code of the R function using the API, e.g <a href="../R/hello">here</a>.</li>
+      <li>If the R function has a manual page, it we can find it <a href="../man/hello">here</a></li>
       <li>When the name field is empty, the R function raises an error. Notice how we deal with this in javascript.</li>
     </ul>
     
