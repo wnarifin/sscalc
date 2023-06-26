@@ -1,11 +1,16 @@
-Package: appdemo
+Package: sscalc
 Type: Package
-Title: OpenCPU Demo Application
-Version: 1.0
-Date: 2017-05-13
-Author: Jeroen Ooms
-Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
-Description: This package is an example of an OpenCPU App. It demonstrates
-    basic functionality of the API and Javascript library.
-License: Apache2
+Title: Sample Size Calculator
+Version: 0.1.0
+Authors@R: 
+    person(given = "Wan Nor",
+           family = "Arifin",
+           role = c("aut", "cre"),
+           email = "wnarifin@gmail.com",
+           comment = c(ORCID = "0000-0001-7786-4251"))
+Author: Wan Nor Arifin [aut, cre]
+Maintainer: Wan Nor Arifin <wnarifin@gmail.com>
+Description: This will host some R functions for Sample Size Calculator at https://wnarifin.github.io/ssc_web.html
+License: GPL (>= 3)
+Encoding: UTF-8
 LazyData: true
