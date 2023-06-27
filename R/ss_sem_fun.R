@@ -10,8 +10,8 @@
 # cormat_equal(n_item, n_factor, fl, factor_cor)  # generate cor matrix, equal item per factor
 # cormat_unequal(vector_item, fl, factor_cor)  # generate cor matrix, unequal item per factor
 # ncp_calc(alpha, power, df)  # calculate non-centrality parameter given alpha, power, df
-# nrmsea_calc(rmsea = 0.05, alpha, power, df)  # sample size using prespecified RMSEA
-# ncfi_calc(cfi = 0.05, alpha, power, df, dfB, cormat)  # sample size using prespecified CFI
+# nrmsea_calc(rmsea = 0.05, alpha, power, df, ncp = OPTIONAL)  # sample size using prespecified RMSEA
+# ncfi_calc(cfi = 0.05, alpha, power, df, dfB, ncp = OPTIONAL, cormat)  # sample size using prespecified CFI
 #
 # Description:
 # - This script includes functions to calculate df for sample size calculation.
@@ -141,7 +141,10 @@ nrmsea_calc = function(rmsea = 0.05, alpha, power, df, ncp = NULL) {
 }
 
 # Calculate sample size given expected CFI
-ncfi_calc = function(cfi = 0.95, alpha, power, df, dfb, ncp, cormat) {
+ncfi_calc = function(cfi = 0.95, alpha, power, df, dfb, ncp = NULL, cormat) {
+  if (is.null(ncp)) {
+    ncp = do.call(ncp_calc, list(alpha = alpha, power = power, df = df))[[1]]
+  }
   F_B = -log(det(cormat))
   N_cfi = (ncp + dfb*(1 - cfi)) / (F_B*(1 - cfi)) + 1
   return(list(N_cfi = N_cfi))

@@ -25,19 +25,11 @@ $(document).ready(function(){
     drop = document.SSRMSEA1.drop.value;
     
     //perform the request
-    //ncp first
-    /*var req = ocpu.rpc("ncp_calc", {
-      alpha : alpha,
-      power : power,    
-      df : df
-    }, function(output){var ncp = output.delta});*/
-    //then rmsea
     var req = ocpu.rpc("nrmsea_calc", {
       rmsea : rmsea,
       alpha : alpha,
       power : power,    
       df : df,
-      //ncp : ncp
     }, function(output){
       n = Math.ceil(output.N_e);
       n_drop = Math.ceil( n / ((100 - drop) / 100) );
@@ -50,12 +42,9 @@ $(document).ready(function(){
     req.fail(function(){
       alert("Server error: " + req.responseText);
     });
-    req1.fail(function(){
-      alert("Server error: " + req.responseText);
-    });
     
     //after request complete, re-enable the button 
-    req1.always(function(){
+    req.always(function(){
       $("#calculatebutton").removeAttr("disabled")
     });
   });
