@@ -132,16 +132,13 @@ cormat_unequal = function(vector_item, fl, factor_cor) {
 }
 
 # Calculate sample size given expected RMSEA
-nrmsea_calc = function(rmsea = 0.05, alpha, power, df) {
-  ncp = ncp_calc(alpha, power, df)$ncp
+nrmsea_calc = function(rmsea = 0.05, alpha, power, df, ncp) {
   N_e = (ncp / (rmsea^2 * df)) + 1
   return(list(N_e = N_e))
 }
 
 # Calculate sample size given expected CFI
-ncfi_calc = function(cfi = 0.95, alpha, power, df, dfb, cormat) {
-  ncp = ncp_calc(alpha, power, df)$ncp
-  cormat = cormat$mat_cor
+ncfi_calc = function(cfi = 0.95, alpha, power, df, dfb, ncp, cormat) {
   F_B = -log(det(cormat))
   N_cfi = (ncp + dfb*(1 - cfi)) / (F_B*(1 - cfi)) + 1
   return(list(N_cfi = N_cfi))
