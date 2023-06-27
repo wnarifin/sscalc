@@ -1,7 +1,8 @@
 # Sample size calculator for SEM
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # Author: Wan Nor Arifin
-# Last update: 2020-07-30
+# Last update: 2023-06-27
+# Modified for use with opencpu
 #
 # Functions:
 # df_model(n_item, n_factor)  # df for model
@@ -71,7 +72,7 @@ ncp_calc = function(alpha, power, df) {
       amount = amount / 10
     }
   }
-  return(delta)
+  return(list(delta = delta))
 }
 
 # Obtain model-implied correlation matrix, equal no of item per factor
