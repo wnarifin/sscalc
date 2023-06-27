@@ -42,7 +42,7 @@ df_model = function(n_item, n_factor) {
   b = n_item*(n_item + 1)/2
   a = (n_item - n_factor) + n_item + n_factor + n_cor
   df = b - a  # model df
-  return(df)
+  return(list(df = df))
 }
 
 # Calculate baseline df
@@ -52,7 +52,7 @@ df_baseline = function(n_item, n_factor) {
   b = n_item*(n_item + 1)/2
   a_ = (n_item - n_factor) + 0 + n_factor + 0  # FL & Cor = 0
   dfb = b - a_
-  return(dfb)
+  return(list(dfb = dfb))
 }
 
 # Calculate NCP given alpha, power and model df
@@ -101,7 +101,7 @@ cormat_equal = function(n_item, n_factor, fl, factor_cor) {
     uvar = diag(uvar, n_item, n_item)
     # correlation matrix
     mat_cor = mat_fl %*% mat_fc %*% t(mat_fl) + uvar
-    return(mat_cor)
+    return(list(mat_cor = mat_cor))
   }
 }
 
@@ -128,20 +128,21 @@ cormat_unequal = function(vector_item, fl, factor_cor) {
   uvar = diag(uvar, n_item, n_item)
   # correlation matrix
   mat_cor = mat_fl %*% mat_fc %*% t(mat_fl) + uvar
-  return(mat_cor)
+  return(list(mat_cor = mat_cor))
 }
 
 # Calculate sample size given expected RMSEA
 nrmsea_calc = function(rmsea = 0.05, alpha, power, df) {
-  ncp = ncp_calc(alpha, power, df)
+  ncp = ncp_calc(alpha, power, df)$ncp
   N_e = (ncp / (rmsea^2 * df)) + 1
-  return(N_e)
+  return(list(N_e = N_e))
 }
 
 # Calculate sample size given expected CFI
 ncfi_calc = function(cfi = 0.95, alpha, power, df, dfb, cormat) {
-  ncp = ncp_calc(alpha, power, df)
+  ncp = ncp_calc(alpha, power, df)$ncp
+  cormat = cormat$mat_cor
   F_B = -log(det(cormat))
   N_cfi = (ncp + dfb*(1 - cfi)) / (F_B*(1 - cfi)) + 1
-  return(N_cfi)
+  return(list(N_cfi = N_cfi))
 }
