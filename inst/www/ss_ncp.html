@@ -10,21 +10,24 @@
 <script src="opencpu/opencpu-0.4.js"></script>
 <script>
     //init this script when the page has loaded
+    //these are jquery
     $(document).ready(function(){
       $("#calculatebutton").on("click", function(){
         //disable the button to prevent multiple clicks
         $("#calculatebutton").attr("disabled", "disabled");
         
-        //read the value for 'myname'
-        var df = $("#df").val();
-        var df = $("#alpha").val();
-        var df = $("#power").val();
+        //read the values
+        var df = parseFloat($("#df").val());
+        var alpha = parseFloat($("#alpha").val());
+        var power = parseFloat($("#power").val()) / 100;
         
         //perform the request
         var req = ocpu.rpc("ncp_calc", {
-          myname : myname
+          alpha : alpha,
+          power : power,    
+          df : df
         }, function(output){
-          $("#ncp").text(output.message);
+          $("#ncp").text(output);
         });
         
         //if R returns an error, alert the error message
