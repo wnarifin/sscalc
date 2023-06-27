@@ -133,7 +133,9 @@ cormat_unequal = function(vector_item, fl, factor_cor) {
 
 # Calculate sample size given expected RMSEA
 nrmsea_calc = function(rmsea = 0.05, alpha, power, df, ncp = NULL) {
-  if (ncp == NULL) {do.call(ncp_calc, list(alpha = alpha, power = power, df = df)}
+  if (ncp == NULL) {
+    ncp = do.call(ncp_calc, list(alpha = alpha, power = power, df = df))
+  }
   N_e = (ncp / (rmsea^2 * df)) + 1
   return(list(N_e = N_e))
 }
