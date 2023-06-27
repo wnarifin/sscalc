@@ -5,11 +5,11 @@ OpenCPU implementation of my main Sample Size Calculator at https://wnarifin.git
 
 This is implemented for the sample size calculators for Structural Equation Modeling using RMSEA and CFI.
 
-As these requires accurate implementation of Ding's algorithm to calculate noncentral chi-squared distribution (then noncentrality parameter ncp for given df using Kim's algorithm), it relies on qchisq() in R. Javascript implementation of Ding's algorithm cannot handle large df.
+As these require accurate implementation of Ding's algorithm to calculate noncentral chi-squared distribution (then noncentrality parameter ncp for given df using Kim's algorithm), it relies on qchisq() in R. Javascript implementation of Ding's algorithm cannot handle large df.
 
 I use opencpu as an alternative to Shiny, which I find quite slow to load.
 
-Please find the available functions in `R/ss_sem_fun.R`, and the examples in `R/ss_sem_examples.R`. I will write a proper manual / documentation later.
+Please find the available functions in `R/ss_sem_fun.R`, and the examples in `long_example/ss_sem_examples.R`. I will write a proper manual / documentation later.
 
 ## References
 References:
