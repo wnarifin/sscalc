@@ -2,7 +2,7 @@
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # Author: Wan Nor Arifin
 # Last update: 2023-06-27
-# Modified for use with opencpu
+# Modified to fit opencpu using list
 #
 # Functions:
 # df_model(n_item, n_factor)  # df for model

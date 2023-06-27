@@ -25,11 +25,13 @@ $(document).ready(function(){
     drop = document.SSRMSEA1.drop.value;
     
     //perform the request
+    //ncp first
     var req = ocpu.rpc("ncp_calc", {
       alpha : alpha,
       power : power,    
       df : df
     }, function(output){var ncp = output.ncp});
+    //then rmsea
     var req = ocpu.rpc("nrmsea_calc", {
       rmsea : rmsea,
       alpha : alpha,
