@@ -16,19 +16,19 @@ $(document).ready(function(){
   $("#calculatebutton").on("click", function(){
     //disable the button to prevent multiple clicks
     $("#calculatebutton").attr("disabled", "disabled");
-    
+
     //read the values
     rmsea = parseFloat(document.SSRMSEA1.rmsea.value);
     alpha = parseFloat(document.SSRMSEA1.alpha.value);
     power = parseFloat(document.SSRMSEA1.power.value)/100;
     df = parseInt(document.SSRMSEA1.df.value);
     drop = document.SSRMSEA1.drop.value;
-    
+
     //perform the request
     var req = ocpu.rpc("nrmsea_calc", {
       rmsea : rmsea,
       alpha : alpha,
-      power : power,    
+      power : power,
       df : df,
     }, function(output){
       n = Math.ceil(output.N_e);
@@ -37,13 +37,13 @@ $(document).ready(function(){
       document.SSRMSEA1.n_drop.value = n_drop;
       document.getElementById("drop_").innerHTML = drop;
     });
-    
+
     //if R returns an error, alert the error message
     req.fail(function(){
       alert("Server error: " + req.responseText);
     });
-    
-    //after request complete, re-enable the button 
+
+    //after request complete, re-enable the button
     req.always(function(){
       $("#calculatebutton").removeAttr("disabled")
     });
@@ -67,7 +67,7 @@ $(document).ready(function(){
 <!-- inputs -->
 <label>Expected RMSEA: </label><input name="rmsea" type="number" value="0.05" min="0" max="1" step="0.01"><br />
 <!--typical value of RMSEA = 0.05-->
-<label>Degrees of freedom: </label><input name="df" type="number" value="" min="1" max="1000" step="1"><br />
+<label>Degrees of freedom (df, may calculate <a href="https://wnarifin.shinyapps.io/ss_sem_df/">here</a>): </label><input name="df" type="number" value="" min="1" max="1000" step="1"><br />
 <label>Significance level (&alpha;): </label><input name="alpha" type="number" value="0.05" min="0" max="1" step="0.01"> Two-tailed<br />
 <label>Power (1 - &beta;): </label><input name="power" type="number" value="80" min="0" max="100" step="5"> %<br />
 <label>Expected dropout rate: </label><input name="drop" type="number" value="10" min="0" max="100" step="5"> %<br />
