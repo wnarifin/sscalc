@@ -1,7 +1,7 @@
 # Sample size calculator for SEM
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # Author: Wan Nor Arifin
-# Last update: 2023-06-27
+# Last update: 2024-08-06
 # Modified to fit opencpu using list
 #
 # Functions:
@@ -40,17 +40,16 @@ df_model = function(n_item, n_factor) {
   n_factor = n_factor
   n_cor = n_factor*(n_factor - 1)/2
   b = n_item*(n_item + 1)/2
-  a = (n_item - n_factor) + n_item + n_factor + n_cor
+  a = (n_item - n_factor) + n_item + n_factor + n_cor  # freely estimated FL + error var + factor var + factor cor
   df = b - a  # model df
   return(list(df = df))
 }
 
 # Calculate baseline df
-df_baseline = function(n_item, n_factor) {
+df_baseline = function(n_item) {
   n_item = n_item
-  n_factor = n_factor
   b = n_item*(n_item + 1)/2
-  a_ = (n_item - n_factor) + 0 + n_factor + 0  # FL & Cor = 0
+  a_ = 0 + n_item + 0 + 0  # FL, factor var, factor cor = 0, num error var = num indicator var
   dfb = b - a_
   return(list(dfb = dfb))
 }
