@@ -14,4 +14,4 @@ jobs:
           curl -v -X POST "https://cloud.opencpu.org/ocpu/webhook?sendmail=true" \
             -H "Content-Type: application/json" \
             -H "X-GitHub-Event: push" \
-            -d "{\"repository\": {\"full_name\": \"${{ github.repository }}\", \"url\": \"https://github.com/${{ github.repository }}\"}}"
+            -d "{\"ref\": \"refs/heads/${{ github.ref_name }}\", \"repository\": {\"full_name\": \"${{ github.repository }}\", \"url\": \"https://github.com/${{ github.repository }}\"}}"
