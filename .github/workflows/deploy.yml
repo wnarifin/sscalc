@@ -11,6 +11,8 @@ jobs:
         run: |
           curl -X POST "https://cloud.opencpu.org/ocpu/webhook?sendmail=true" \
           -H "Content-Type: application/json" \
+          -H "X-GitHub-Event: push" \
+          -H "User-Agent: GitHub-Hookshot/1234567" \
           -d '{
             "ref": "refs/heads/${{ github.ref_name }}",
             "repository": {
