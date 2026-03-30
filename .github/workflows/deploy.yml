@@ -1,0 +1,19 @@
+name: OpenCPU Deploy
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger OpenCPU Webhook
+        run: |
+          curl -X POST "https://cloud.opencpu.org/ocpu/webhook?sendmail=true" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "ref": "refs/heads/${{ github.ref_name }}",
+            "repository": {
+              "url": "https://github.com/${{ github.repository }}"
+            }
+          }'
