@@ -9,9 +9,7 @@ jobs:
   trigger_build:
     runs-on: ubuntu-latest
     steps:
-      - name: Signal OpenCPU to Rebuild
+      - name: Force OpenCPU Build via API
         run: |
-          curl -X POST "https://cloud.opencpu.org/ocpu/webhook?sendmail=true" \
-            -H "Content-Type: application/json" \
-            -H "X-GitHub-Event: push" \
-            -d '{"repository": {"full_name": "${{ github.repository }}"}}'
+          curl -v -X POST "https://cloud.opencpu.org/ocpu/library/" \
+            -d "package=https://github.com/${{ github.repository }}"
