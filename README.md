@@ -9,10 +9,13 @@ As these require accurate implementation of Ding's algorithm to calculate noncen
 
 I use opencpu as an alternative to Shiny, which I find quite slow to load.
 
-Please find the available functions in `R/ss_sem_fun.R`, and the examples in `long_example/ss_sem_examples.R`. I will write a proper manual / documentation later.
+Please find the available functions in `R/ss_sem_fun.R`, and the examples in `long_example/ss_sem_examples.R`.
+
+I also wrote a tutorial on using the calculator in a paper <https://doi.org/10.21315/eimj2025.17.1.14>.
 
 ## References
 References:
-1. Brown, T. A. (2015). Confirmatory factor analysis for applied research.  New York: The Guilford Press.
-2. Ding, C. G. (1992). Algorithm AS 275: computing the non-central χ 2 distribution function. Journal of the Royal Statistical Society. Series C (Applied Statistics), 41(2), 478-482.
-3. Kim, K. H. (2005) The Relation Among Fit Indexes, Power, and Sample Size in Structural Equation Modeling. Structural Equation Modeling: A Multidisciplinary Journal, 12(3), 368-390. DOI: 10.1207/s15328007sem1203_2
+1. Arifin, W. N. (2025). A web-based sample size calculator for structural equation modelling. Education in Medicine Journal, 17(1), 195–212. https://doi.org/10.21315/eimj2025.17.1.14
+2. Brown, T. A. (2015). Confirmatory factor analysis for applied research.  New York: The Guilford Press.
+3. Ding, C. G. (1992). Algorithm AS 275: computing the non-central χ 2 distribution function. Journal of the Royal Statistical Society. Series C (Applied Statistics), 41(2), 478-482.
+4. Kim, K. H. (2005) The Relation Among Fit Indexes, Power, and Sample Size in Structural Equation Modeling. Structural Equation Modeling: A Multidisciplinary Journal, 12(3), 368-390. DOI: 10.1207/s15328007sem1203_2
