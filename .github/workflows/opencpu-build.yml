@@ -9,7 +9,7 @@ jobs:
   trigger_build:
     runs-on: ubuntu-latest
     steps:
-      - name: Force OpenCPU Build via API
+      - name: Trigger OpenCPU Cloud Rebuild
         run: |
-          curl -v -X POST "https://cloud.opencpu.org/ocpu/library/" \
-            -d "package=https://github.com/${{ github.repository }}"
+          curl -v -X POST "https://cloud.opencpu.org/ocpu/github/" \
+            -d "url=https://github.com/${{ github.repository }}"
