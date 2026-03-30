@@ -6,10 +6,12 @@ on:
       - main
 
 jobs:
-  trigger_build:
+  trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger OpenCPU Cloud Rebuild
+      - name: Force Webhook Trigger
         run: |
-          curl -v -X POST "https://cloud.opencpu.org/ocpu/github/" \
-            -d "url=https://github.com/${{ github.repository }}"
+          curl -v -X POST "https://cloud.opencpu.org/ocpu/webhook?sendmail=true" \
+            -H "Content-Type: application/json" \
+            -H "X-GitHub-Event: push" \
+            -d "{\"repository\": {\"full_name\": \"${{ github.repository }}\", \"url\": \"https://github.com/${{ github.repository }}\"}}"
