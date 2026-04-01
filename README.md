@@ -7,9 +7,7 @@ This is implemented for the sample size calculators for Structural Equation Mode
 
 As these require accurate implementation of Ding's algorithm to calculate noncentral chi-squared distribution (then noncentrality parameter ncp for given df using Kim's algorithm), it relies on qchisq() in R. Javascript implementation of Ding's algorithm cannot handle large df.
 
-I use opencpu as an alternative to Shiny, which I find quite slow to load.
-
-Please find the available functions in `R/ss_sem_fun.R`, and the examples in `long_example/ss_sem_examples.R`.
+I use opencpu as an alternative to Shiny, which I find quite slow to load. Please find the available functions in `R/ss_sem_fun.R`, and the examples in `long_example/ss_sem_examples.R`.
 
 I also wrote a tutorial on using the calculator in a paper <https://doi.org/10.21315/eimj2025.17.1.14>.
 
