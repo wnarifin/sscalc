@@ -1,18 +1,23 @@
 # sscalc
 
-## About
-OpenCPU implementation of my main Sample Size Calculator at https://wnarifin.github.io/ssc_web.html
+## Update
+I have to abandon OpenCPU as the Github Webhook does not seem to work anymore. I tried using Github Action to replace it; it did not work. Therefore, I am migrating all links on the <https://wnarifin.github.io/ssc_web.html> page to Shiny. The pages:
 
-This is implemented for the sample size calculators for Structural Equation Modeling using RMSEA and CFI.
+1. <https://wnarifin.ocpu.io/sscalc/www/ssrmsea.html>
+2. <https://wnarifin.ocpu.io/sscalc/www/ssncp.html>
 
-As these require accurate implementation of Ding's algorithm to calculate noncentral chi-squared distribution (then noncentrality parameter ncp for given df using Kim's algorithm), it relies on qchisq() in R. Javascript implementation of Ding's algorithm cannot handle large df.
+may/may not work as the last successful update via webhook was in August 2024.
 
-I use opencpu as an alternative to Shiny, which I find quite slow to load. Please find the available functions in `R/ss_sem_fun.R`, and the examples in `long_example/ss_sem_examples.R`.
+## About (OLD)
+OpenCPU implementation of my main Sample Size Calculator at <https://wnarifin.github.io/ssc_web.html>
+
+This is implemented for the sample size calculators for Structural Equation Modeling using RMSEA and CFI. As these require accurate implementation of Ding's algorithm to calculate noncentral chi-squared distribution (then noncentrality parameter ncp for given df using Kim's algorithm), it relies on qchisq() in R. Javascript implementation of Ding's algorithm cannot handle large df.
+
+I use OpenCPU as an alternative to Shiny, which I find quite slow to load. Please find the available functions in `R/ss_sem_fun.R`, and the examples in `long_example/ss_sem_examples.R`.
 
 I also wrote a tutorial on using the calculator in a paper <https://doi.org/10.21315/eimj2025.17.1.14>.
 
 ## References
-References:
 1. Arifin, W. N. (2025). A web-based sample size calculator for structural equation modelling. Education in Medicine Journal, 17(1), 195–212. https://doi.org/10.21315/eimj2025.17.1.14
 2. Brown, T. A. (2015). Confirmatory factor analysis for applied research.  New York: The Guilford Press.
 3. Ding, C. G. (1992). Algorithm AS 275: computing the non-central χ 2 distribution function. Journal of the Royal Statistical Society. Series C (Applied Statistics), 41(2), 478-482.
